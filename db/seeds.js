@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/express-mongoose-lesson-starter');
+mongoose.connect('mongodb://localhost/weather-app');
 
 var User = require('../models/user');
 var City = require('../models/city');
