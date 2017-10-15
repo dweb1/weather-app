@@ -16,9 +16,27 @@ var atlanta = new City({
     name: "Atlanta"
 })
 
+var newyork = new City({
+    name: "New York"
+})
+
+var london = new City({
+    name: "London"
+})
+
 atlanta.save( (err) => {
     if (err) console.log(err);
     console.log('Atlanta created');
+})
+
+newyork.save( (err) => {
+    if (err) console.log(err);
+    console.log('New York created');
+})
+
+london.save( (err) => {
+    if (err) console.log(err);
+    console.log('London created');
 })
 
 mongoose.connection.close();
