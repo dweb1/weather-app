@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components'
 
 const Nav = styled.div`
@@ -9,12 +9,19 @@ const Nav = styled.div`
     margin: auto 0
 `
 
-const Header = () => {
+class Header extends Component{
+
+    componentWillMount = () => {
+        this.props.fetchCities()
+    }
+
+    render() {
     return (
         <Nav>
             Hello world
         </Nav>
     );
+    }
 };
 
 export default Header;

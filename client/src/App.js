@@ -15,16 +15,15 @@ class App extends Component {
     }
   }
 
-  fetchCities = () => {
-    // api.openweathermap.org/data/2.5/weather?q=Atlanta
-    
-    
+  fetchCities = async() => {
+    const res = await axios.get('http://api.openweathermap.org/data/2.5/weather?q=Atlanta&APPID=93627383db7b93148aad9ce936751dd8')
+    console.log(res);
   }
 
   render() {
     return (
       <div>
-        <Header />
+        <Header fetchCities={this.fetchCities}/>
       </div>
     );
   }
