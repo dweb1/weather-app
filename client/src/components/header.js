@@ -11,10 +11,6 @@ const Nav = styled.div`
 
 class Header extends Component{
 
-    componentWillMount = () => {
-        this.props.fetchCities()
-    }
-
     render() {
     return (
         <Nav>

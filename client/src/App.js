@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import axios from 'axios'
 
-
 import Header from './components/header'
+import Home from './components/home'
 
 class App extends Component {
 
@@ -21,10 +21,18 @@ class App extends Component {
   }
 
   render() {
+
+    const HomeComponent = () =>(<Home fetchCities={this.fetchCities}/>)
+
     return (
-      <div>
-        <Header fetchCities={this.fetchCities}/>
-      </div>
+      <Router>
+        <div className="App">
+          <div>
+            <Header />
+          </div>
+          <Route exact path="/" render={HomeComponent} />
+        </div>
+      </Router>
     );
   }
 }
