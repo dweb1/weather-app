@@ -56,6 +56,17 @@ class City extends Component {
         this.setState(newState)
       }
 
+      componentDidUpdate(prevProps, prevState) {
+        if (prevProps.celcius !== this.props.celcius) {
+            if (this.props.celcius) {
+                this._toCelcius();
+                
+            } else {
+                this._toFahrenheit();   
+            }
+        }
+    }
+
     render(){
     return (
        <CityCard>
