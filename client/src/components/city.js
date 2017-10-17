@@ -71,9 +71,9 @@ class City extends Component {
     return (
        <CityCard>
             <p>{this.props.name}</p>
-            <p>Temperature: {this.state.weather.main.temp}</p>
-            <p>Max temp: {this.state.weather.main.temp_max}</p>
-            <p>Min temp: {this.state.weather.main.temp_min}</p>
+            <p>Temperature: {this.state.weather.main.temp} {this.props.celcius ? <p>C</p> : <p>F</p> }</p>
+            <p>Max temp: {this.state.weather.main.temp_max} {this.props.celcius ? <p>C</p> : <p>F</p> }</p>
+            <p>Min temp: {this.state.weather.main.temp_min} {this.props.celcius ? <p>C</p> : <p>F</p> }</p>
         </CityCard>
     )
 }
