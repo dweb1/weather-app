@@ -26,16 +26,11 @@ class App extends Component {
     this.setState(newState)
   }
 
-  getWeatherData = async() => {
-    const res = await axios.get('http://api.openweathermap.org/data/2.5/weather?q=Atlanta&APPID=93627383db7b93148aad9ce936751dd8')
-    console.log(res);
-  }
-
   render() {
 
     const HomeComponent = () =>(<Home
      city={this.state.favoriteCities} 
-     fetchCities={this.fetchCities} getWeatherData={this.getWeatherData}/>)
+     fetchCities={this.fetchCities} />)
 
     return (
       <Router>
