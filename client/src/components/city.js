@@ -4,7 +4,7 @@ import axios from 'axios'
 
 const CityCard = styled.div `
     background: grey;
-    width: 150px;
+    width: 300px;
     height: 100%;
     border-radius: 4px;    
     margin-top: 20px;
@@ -16,12 +16,14 @@ class City extends Component {
     constructor(){
         super();
         this.state = {
-            weather: {}
+            weather: {
+                main: ""
+            }
         }
     }
 
     componentWillMount(){
-        // this.getWeatherData()        
+        this.getWeatherData()        
     }
 
     getWeatherData = async() => {
@@ -32,12 +34,37 @@ class City extends Component {
         this.setState(newState)
     }
 
+    _toCelcius = () => {
+        var celcius = Math.floor((this.state.weather.main.temp - 32) * 5/9)
+        var celciusTemp_max = Math.floor((this.state.weather.main.temp_max - 32) * 5/9)
+        var celciusTemp_min = Math.floor((this.state.weather.main.temp_min - 32) * 5/9)
+        const newState = {...this.state}
+        newState.weather.main.temp = celcius
+        newState.weather.main.temp_min = celciusTemp_min
+        newState.weather.main.temp_max = celciusTemp_max
+        this.setState(newState)
+      }
+      
+      _toFahrenheit = () => {
+        var fahrenheit = Math.floor((this.state.weather.main.temp * 1.8) +32)
+        var fahrenheitTemp_max = Math.floor((this.state.weather.main.temp_max * 1.8) +32)
+        var fahrenheitTemp_min = Math.floor((this.state.weather.main.temp_min * 1.8) +32)
+        const newState = {...this.state}
+        newState.weather.main.temp = fahrenheit
+        newState.weather.main.temp_min = fahrenheitTemp_min
+        newState.weather.main.temp_max = fahrenheitTemp_max
+        this.setState(newState)
+      }
+
     render(){
     return (
-        <CityCard>
+       <CityCard>
             <p>{this.props.name}</p>
+            <p>Temperature: {this.state.weather.main.temp}</p>
+            <p>Max temp: {this.state.weather.main.temp_max}</p>
+            <p>Min temp: {this.state.weather.main.temp_min}</p>
         </CityCard>
-    );
+    )
 }
 };
 

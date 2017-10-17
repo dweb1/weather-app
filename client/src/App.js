@@ -10,6 +10,7 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
+      celcius: false,
       user: {},
       favoriteCities: []
     }
@@ -26,11 +27,22 @@ class App extends Component {
     this.setState(newState)
   }
 
+  _changeBoolean = () => {
+    let newState = {...this.state}
+    if (newState.celcius) {
+      newState.celcius = false
+    } else {
+      newState.celcius = true
+    }
+    this.setState(newState)
+  }
+
   render() {
 
     const HomeComponent = () =>(<Home
      city={this.state.favoriteCities} 
-     fetchCities={this.fetchCities} />)
+     fetchCities={this.fetchCities} 
+     celcius={this.state.celcius}/>)
 
     return (
       <Router>
@@ -38,6 +50,7 @@ class App extends Component {
           <div>
             <Header />
           </div>
+          { this.state.celcius ? <button onClick={this._changeBoolean}>Fahrenheit </button> : <button onClick={this._changeBoolean}>Celcius</button> }
           <Route exact path="/" render={HomeComponent} />
         </div>
       </Router>

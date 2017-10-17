@@ -19,7 +19,7 @@ class Home extends Component {
         return (
             <CityCardBox>
                 {this.props.city.map((city, i) => {
-                    return <City key={i} name={city}/>
+                    return <City celcius={this.props.celcius} key={i} name={city}/>
                 })}
             </CityCardBox>
         );
