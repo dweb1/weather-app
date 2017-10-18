@@ -114,9 +114,7 @@ class City extends Component {
             <h1>{this.state.weather.name}</h1>
             <FiveDay 
                 fiveDay={this.state.fiveDay} 
-                celcius={this.props.celcius}
-                toCelcius = {this._toCelcius}
-                toFahrenheit = {this._toFahrenheit}/>
+                celcius={this.props.celcius} />
             <h4>Current Weather</h4>
             <img src={this.state.icon} alt="Weather Icon" />
             {this.props.celcius ? <p>Temperature: {this.state.weather.main.temp}&#176;C</p> : <p>Temperature: {this.state.weather.main.temp}&#176;F</p> }

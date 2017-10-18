@@ -9,15 +9,45 @@ const FiveDayForecast = styled.div`
 
 class FiveDay extends Component {
 
+    _toCelcius = () => {
+        var celcius6 = Math.floor((this.props.fiveDay.list[6].main.temp - 32) * 5/9)
+        var celcius14 = Math.floor((this.props.fiveDay.list[14].main.temp - 32) * 5/9)
+        var celcius22 = Math.floor((this.props.fiveDay.list[22].main.temp - 32) * 5/9)
+        var celcius30 = Math.floor((this.props.fiveDay.list[30].main.temp - 32) * 5/9)
+        var celcius38 = Math.floor((this.props.fiveDay.list[38].main.temp - 32) * 5/9)      
+        const newProps = {...this.props}
+        newProps.fiveDay.list[6].main.temp = celcius6
+        newProps.fiveDay.list[14].main.temp = celcius14
+        newProps.fiveDay.list[22].main.temp = celcius22
+        newProps.fiveDay.list[30].main.temp = celcius30
+        newProps.fiveDay.list[38].main.temp = celcius38
+        this.setState(newProps)
+      }
+      
+      _toFahrenheit = () => {
+        var fahrenheit6 = Math.floor((this.props.fiveDay.list[6].main.temp * 1.8) +32)
+        var fahrenheit14 = Math.floor((this.props.fiveDay.list[14].main.temp * 1.8) +32)
+        var fahrenheit22 = Math.floor((this.props.fiveDay.list[22].main.temp * 1.8) +32)
+        var fahrenheit30 = Math.floor((this.props.fiveDay.list[30].main.temp * 1.8) +32)
+        var fahrenheit38 = Math.floor((this.props.fiveDay.list[38].main.temp * 1.8) +32)  
+        const newProps = {...this.props}
+        newProps.fiveDay.list[6].main.temp = fahrenheit6
+        newProps.fiveDay.list[14].main.temp = fahrenheit14
+        newProps.fiveDay.list[22].main.temp = fahrenheit22
+        newProps.fiveDay.list[30].main.temp = fahrenheit30
+        newProps.fiveDay.list[38].main.temp = fahrenheit38
+        this.setState(newProps)
+      }
+
     componentDidUpdate(prevProps, prevState) {
-        // if (prevProps.celcius !== this.props.celcius) {
-        //     if (this.props.celcius) {
-        //         this.props.toCelcius();
+        if (prevProps.celcius !== this.props.celcius) {
+            if (this.props.celcius) {
+                this._toCelcius();
                 
-        //     } else {
-        //         this.props.toFahrenheit();   
-        //     }
-        // }
+            } else {
+                this._toFahrenheit();   
+            }
+        }
     }
     
     calculateTime = (time) => {
