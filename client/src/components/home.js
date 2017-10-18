@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import City from './city'
+import FavCities from './favCities'
 import styled from 'styled-components'
 
 const CityCardBox = styled.div`
@@ -19,7 +19,7 @@ class Home extends Component {
         return (
             <CityCardBox>
                 {this.props.city.map((city, i) => {
-                    return <City celcius={this.props.celcius} key={i} name={city}/>
+                    return <FavCities celcius={this.props.celcius} key={i} name={city}/>
                 })}
             </CityCardBox>
         );

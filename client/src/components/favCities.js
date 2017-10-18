@@ -1,52 +1,37 @@
 import React, { Component } from 'react';
-import axios from 'axios'
 import styled from 'styled-components'
+import axios from 'axios'
+import {withRouter, Link} from 'react-router-dom'
 
-const CityCard = styled.div`
+const CityCard = styled.div `
     background: rgba(192,192,192,.5);
     width: 300px;
     height: 100%;
     border-radius: 4px;    
     margin-top: 20px;
-    text-align: center  
+    text-align: center   
 `
 
-let divStyle = {
-    transform: `rotate({this.state.weather.wind.deg}deg)`
-}
-
-class City extends Component {
+class favCities extends Component {
 
     constructor(){
         super();
         this.state = {
             weather: {
                 main: ""
-            },
-            icon: "",
-            image: ""
+            }
         }
     }
 
-    componentWillMount = () => {
-        this.getWeatherData();
-        // this.getWeatherPic()
+    componentWillMount(){
+        this.getWeatherData()        
     }
 
-     getWeatherData = async() => {
-        const cityName = this.props.match.params.city
+    getWeatherData = async() => {
+        const cityName = this.props.name
         const res = await axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${cityName}&APPID=93627383db7b93148aad9ce936751dd8&units=imperial`)
         let newState = {...this.state}
         newState.weather = res.data
-        newState.icon = `http://openweathermap.org/img/w/${res.data.weather[0].icon}.png`
-        this.setState(newState)
-    }
-
-    getWeatherPic = async() => {
-        const res = await axios.get('http://tile.openweathermap.org/map/temp_new/8/-84.39/33.75.png?appid=93627383db7b93148aad9ce936751dd8'
-        )
-        let newState = {...this.newState}
-        newState.image = res.data
         this.setState(newState)
     }
 
@@ -72,7 +57,7 @@ class City extends Component {
         this.setState(newState)
       }
 
-    componentDidUpdate(prevProps, prevState) {
+      componentDidUpdate(prevProps, prevState) {
         if (prevProps.celcius !== this.props.celcius) {
             if (this.props.celcius) {
                 this._toCelcius();
@@ -85,18 +70,15 @@ class City extends Component {
 
     render(){
     return (
-        <CityCard>
-            <h1>{this.state.weather.name}</h1>
-            <img src={this.state.icon} alt="weather Icon" />
+       <CityCard>
+            <p>{this.props.name}</p>
             {this.props.celcius ? <p>Temperature: {this.state.weather.main.temp}&#176;C</p> : <p>Temperature: {this.state.weather.main.temp}&#176;F</p> }
             {this.props.celcius ? <p>Max temp: {this.state.weather.main.temp_max}&#176;C</p> : <p>Max temp: {this.state.weather.main.temp_max}&#176;F</p> }
             {this.props.celcius ? <p>Min temp: {this.state.weather.main.temp_min}&#176;C</p> : <p>Min temp: {this.state.weather.main.temp_min}&#176;F</p> }
-            <div style={divStyle}>
-                <img src="http://freevector.co/wp-content/uploads/2010/02/13298-arrow-pointing-north1.png" />
-            </div>
+            <Link to={this.props.name}>Click to see more</Link>
         </CityCard>
-    );
+    )
 }
 };
 
-export default City;
+export default withRouter(favCities);
