@@ -2,18 +2,21 @@ import React, { Component } from 'react';
 import axios from 'axios'
 import styled from 'styled-components'
 
+import FiveDay from './fiveDay'
+
 const CityCard = styled.div`
     background: rgba(192,192,192,.5);
     width: 300px;
-    height: 100%;
     border-radius: 4px;    
     margin-top: 20px;
-    text-align: center  
+    text-align: center;
+    margin: 0 auto 
 `
 
-let divStyle = {
-    transform: `rotate({this.state.weather.wind.deg}deg)`
-}
+const Wind = styled.div`
+    display: flex;
+    justify-content: space-around
+`
 
 class City extends Component {
 
@@ -21,15 +24,22 @@ class City extends Component {
         super();
         this.state = {
             weather: {
-                main: ""
+                main: "",
+                sys: "",
+                wind: ""
             },
             icon: "",
-            image: ""
+            image: "",
+            fiveDay: {
+                list: [
+                ]
+            }
         }
     }
 
     componentWillMount = () => {
         this.getWeatherData();
+        this.getFiveDay();
         // this.getWeatherPic()
     }
 
@@ -39,6 +49,15 @@ class City extends Component {
         let newState = {...this.state}
         newState.weather = res.data
         newState.icon = `http://openweathermap.org/img/w/${res.data.weather[0].icon}.png`
+        this.setState(newState)
+    }
+
+    getFiveDay = async() => {
+        const nationName = this.state.weather.sys.country
+        const cityName = this.props.match.params.city
+        const res = await axios.get(`http://api.openweathermap.org/data/2.5/forecast?q=${cityName},${nationName}&APPID=93627383db7b93148aad9ce936751dd8&units=imperial`)
+        let newState = {...this.state}
+        newState.fiveDay.list = res.data.list
         this.setState(newState)
     }
 
@@ -84,16 +103,32 @@ class City extends Component {
     }
 
     render(){
+
+    const Arrow = styled.div`
+        transform: rotate(-${this.state.weather.wind.deg}deg);
+        margin: 0 auto
+    `
+
     return (
         <CityCard>
             <h1>{this.state.weather.name}</h1>
+            <FiveDay fiveDay={this.state.fiveDay}/>
             <img src={this.state.icon} alt="weather Icon" />
             {this.props.celcius ? <p>Temperature: {this.state.weather.main.temp}&#176;C</p> : <p>Temperature: {this.state.weather.main.temp}&#176;F</p> }
             {this.props.celcius ? <p>Max temp: {this.state.weather.main.temp_max}&#176;C</p> : <p>Max temp: {this.state.weather.main.temp_max}&#176;F</p> }
             {this.props.celcius ? <p>Min temp: {this.state.weather.main.temp_min}&#176;C</p> : <p>Min temp: {this.state.weather.main.temp_min}&#176;F</p> }
-            <div style={divStyle}>
-                <img src="http://freevector.co/wp-content/uploads/2010/02/13298-arrow-pointing-north1.png" />
-            </div>
+            <Wind>
+                <div>
+                <h6>Wind Direction</h6>
+                <Arrow>
+                    <img alt="Wind Direction" height='50px' width='50px' src="http://freevector.co/wp-content/uploads/2010/02/13298-arrow-pointing-north1.png" />
+                </Arrow>
+                </div>
+                <div>
+                <h6>Wind Speed</h6>
+                <p>{this.state.weather.wind.speed} mph</p>
+                </div>
+            </Wind>
         </CityCard>
     );
 }
