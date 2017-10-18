@@ -112,8 +112,13 @@ class City extends Component {
     return (
         <CityCard>
             <h1>{this.state.weather.name}</h1>
-            <FiveDay fiveDay={this.state.fiveDay}/>
-            <img src={this.state.icon} alt="weather Icon" />
+            <FiveDay 
+                fiveDay={this.state.fiveDay} 
+                celcius={this.props.celcius}
+                toCelcius = {this._toCelcius}
+                toFahrenheit = {this._toFahrenheit}/>
+            <h4>Current Weather</h4>
+            <img src={this.state.icon} alt="Weather Icon" />
             {this.props.celcius ? <p>Temperature: {this.state.weather.main.temp}&#176;C</p> : <p>Temperature: {this.state.weather.main.temp}&#176;F</p> }
             {this.props.celcius ? <p>Max temp: {this.state.weather.main.temp_max}&#176;C</p> : <p>Max temp: {this.state.weather.main.temp_max}&#176;F</p> }
             {this.props.celcius ? <p>Min temp: {this.state.weather.main.temp_min}&#176;C</p> : <p>Min temp: {this.state.weather.main.temp_min}&#176;F</p> }
