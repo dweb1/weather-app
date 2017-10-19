@@ -76,28 +76,32 @@ class FiveDay extends Component {
                     {this.props.celcius ? 
                         <p>{this.props.fiveDay.list[14].main.temp}&#176;C</p> 
                         : 
-                        <p>{this.props.fiveDay.list[14].main.temp}&#176;F</p> }                </div>
+                        <p>{this.props.fiveDay.list[14].main.temp}&#176;F</p> }
+                </div>
                 <div>
                     <p>{this.calculateTime(this.props.fiveDay.list[22].dt)}</p>
                     <img src={"http://openweathermap.org/img/w/" + this.props.fiveDay.list[22].weather[0].icon + ".png"} alt="" />
                     {this.props.celcius ? 
                         <p>{this.props.fiveDay.list[22].main.temp}&#176;C</p> 
                         : 
-                        <p>{this.props.fiveDay.list[22].main.temp}&#176;F</p> }                </div>
+                        <p>{this.props.fiveDay.list[22].main.temp}&#176;F</p> }
+                </div>
                 <div>
                     <p>{this.calculateTime(this.props.fiveDay.list[30].dt)}</p>
                     <img src={"http://openweathermap.org/img/w/" + this.props.fiveDay.list[30].weather[0].icon + ".png"} alt="" />
                     {this.props.celcius ? 
                         <p>{this.props.fiveDay.list[30].main.temp}&#176;C</p> 
                         : 
-                        <p>{this.props.fiveDay.list[30].main.temp}&#176;F</p> }                </div>
+                        <p>{this.props.fiveDay.list[30].main.temp}&#176;F</p> }
+                </div>
                 <div>
                     <p>{this.calculateTime(this.props.fiveDay.list[38].dt)}</p>
                     <img src={"http://openweathermap.org/img/w/" + this.props.fiveDay.list[38].weather[0].icon + ".png"} alt="" />
                     {this.props.celcius ? 
                         <p>{this.props.fiveDay.list[38].main.temp}&#176;C</p> 
                         : 
-                        <p>{this.props.fiveDay.list[38].main.temp}&#176;F</p> }                </div>
+                        <p>{this.props.fiveDay.list[38].main.temp}&#176;F</p> }
+                </div>
             </FiveDayForecast>
             </div>
 
