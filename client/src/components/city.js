@@ -70,9 +70,9 @@ class City extends Component {
     }
 
     _toCelcius = () => {
-        var celcius = Math.floor((this.state.weather.main.temp - 32) * 5/9)
-        var celciusTemp_max = Math.floor((this.state.weather.main.temp_max - 32) * 5/9)
-        var celciusTemp_min = Math.floor((this.state.weather.main.temp_min - 32) * 5/9)
+        var celcius = Math.round((this.state.weather.main.temp - 32) * 5/9)
+        var celciusTemp_max = Math.round((this.state.weather.main.temp_max - 32) * 5/9)
+        var celciusTemp_min = Math.round((this.state.weather.main.temp_min - 32) * 5/9)
         const newState = {...this.state}
         newState.weather.main.temp = celcius
         newState.weather.main.temp_min = celciusTemp_min
@@ -81,9 +81,9 @@ class City extends Component {
       }
       
       _toFahrenheit = () => {
-        var fahrenheit = Math.floor((this.state.weather.main.temp * 1.8) +32)
-        var fahrenheitTemp_max = Math.floor((this.state.weather.main.temp_max * 1.8) +32)
-        var fahrenheitTemp_min = Math.floor((this.state.weather.main.temp_min * 1.8) +32)
+        var fahrenheit = Math.round((this.state.weather.main.temp * 1.8) +32)
+        var fahrenheitTemp_max = Math.round((this.state.weather.main.temp_max * 1.8) +32)
+        var fahrenheitTemp_min = Math.round((this.state.weather.main.temp_min * 1.8) +32)
         const newState = {...this.state}
         newState.weather.main.temp = fahrenheit
         newState.weather.main.temp_min = fahrenheitTemp_min
