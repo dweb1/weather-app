@@ -10,11 +10,11 @@ const FiveDayForecast = styled.div`
 class FiveDay extends Component {
 
     _toCelcius = () => {
-        var celcius6 = Math.floor((this.props.fiveDay.list[6].main.temp - 32) * 5/9)
-        var celcius14 = Math.floor((this.props.fiveDay.list[14].main.temp - 32) * 5/9)
-        var celcius22 = Math.floor((this.props.fiveDay.list[22].main.temp - 32) * 5/9)
-        var celcius30 = Math.floor((this.props.fiveDay.list[30].main.temp - 32) * 5/9)
-        var celcius38 = Math.floor((this.props.fiveDay.list[38].main.temp - 32) * 5/9)      
+        var celcius6 = Math.round((this.props.fiveDay.list[6].main.temp - 32) * 5/9)
+        var celcius14 = Math.round((this.props.fiveDay.list[14].main.temp - 32) * 5/9)
+        var celcius22 = Math.round((this.props.fiveDay.list[22].main.temp - 32) * 5/9)
+        var celcius30 = Math.round((this.props.fiveDay.list[30].main.temp - 32) * 5/9)
+        var celcius38 = Math.round((this.props.fiveDay.list[38].main.temp - 32) * 5/9)      
         const newProps = {...this.props}
         newProps.fiveDay.list[6].main.temp = celcius6
         newProps.fiveDay.list[14].main.temp = celcius14
@@ -25,11 +25,11 @@ class FiveDay extends Component {
       }
       
       _toFahrenheit = () => {
-        var fahrenheit6 = Math.floor((this.props.fiveDay.list[6].main.temp * 1.8) +32)
-        var fahrenheit14 = Math.floor((this.props.fiveDay.list[14].main.temp * 1.8) +32)
-        var fahrenheit22 = Math.floor((this.props.fiveDay.list[22].main.temp * 1.8) +32)
-        var fahrenheit30 = Math.floor((this.props.fiveDay.list[30].main.temp * 1.8) +32)
-        var fahrenheit38 = Math.floor((this.props.fiveDay.list[38].main.temp * 1.8) +32)  
+        var fahrenheit6 = Math.round((this.props.fiveDay.list[6].main.temp * 1.8) +32)
+        var fahrenheit14 = Math.round((this.props.fiveDay.list[14].main.temp * 1.8) +32)
+        var fahrenheit22 = Math.round((this.props.fiveDay.list[22].main.temp * 1.8) +32)
+        var fahrenheit30 = Math.round((this.props.fiveDay.list[30].main.temp * 1.8) +32)
+        var fahrenheit38 = Math.round((this.props.fiveDay.list[38].main.temp * 1.8) +32)  
         const newProps = {...this.props}
         newProps.fiveDay.list[6].main.temp = fahrenheit6
         newProps.fiveDay.list[14].main.temp = fahrenheit14
