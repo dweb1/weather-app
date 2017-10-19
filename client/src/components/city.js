@@ -105,7 +105,7 @@ class City extends Component {
     render(){
 
     const Arrow = styled.div`
-        transform: rotate(-${this.state.weather.wind.deg}deg);
+        transform: rotate(${this.state.weather.wind.deg}deg);
         margin: 0 auto
     `
 

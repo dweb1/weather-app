@@ -26,7 +26,8 @@ class App extends Component {
     this.state = {
       celcius: false,
       user: {},
-      favoriteCities: []
+      favoriteCities: [],
+      search: ""
     }
   }
 
@@ -51,12 +52,21 @@ class App extends Component {
     this.setState(newState)
   }
 
+  _handleChange = (e) => {
+    const newState = {...this.state}
+    newState.search = e.target.value
+    this.setState(newState)
+  }
+
   render() {
 
     const HomeComponent = () =>(<Home
      city={this.state.favoriteCities} 
      fetchCities={this.fetchCities} 
-     celcius={this.state.celcius}/>)
+     celcius={this.state.celcius}
+     search={this.state.search}
+     handleChange={this._handleChange} 
+     search={this.state.search}/>)
 
      const CityComponent = (props) =>(<City 
       {...props} 
