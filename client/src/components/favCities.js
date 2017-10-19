@@ -4,7 +4,7 @@ import axios from 'axios'
 import {withRouter, Link} from 'react-router-dom'
 
 const CityCard = styled.div `
-    background: rgba(192,192,192,.5);
+    background: rgba(192,192,192,.75);
     width: 300px;
     height: 100%;
     border-radius: 4px;    

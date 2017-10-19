@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import FiveDay from './fiveDay'
 
 const CityCard = styled.div`
-    background: rgba(192,192,192,.5);
+    background: rgba(192,192,192,.75);
     width: 300px;
     border-radius: 4px;    
     margin-top: 20px;
@@ -61,13 +61,13 @@ class City extends Component {
         this.setState(newState)
     }
 
-    getWeatherPic = async() => {
-        const res = await axios.get('http://tile.openweathermap.org/map/temp_new/8/-84.39/33.75.png?appid=93627383db7b93148aad9ce936751dd8'
-        )
-        let newState = {...this.newState}
-        newState.image = res.data
-        this.setState(newState)
-    }
+    // getWeatherPic = async() => {
+    //     const res = await axios.get('http://tile.openweathermap.org/map/temp_new/8/-84.39/33.75.png?appid=93627383db7b93148aad9ce936751dd8'
+    //     )
+    //     let newState = {...this.newState}
+    //     newState.image = res
+    //     this.setState(newState)
+    // }
 
     _toCelcius = () => {
         var celcius = Math.round((this.state.weather.main.temp - 32) * 5/9)

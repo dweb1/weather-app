@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import {withRouter} from 'react-router-dom'
 
 const FormStyle = styled.div`
-background: rgba(192,192,192,.5);
+background: rgba(192,192,192,.75);
 width: 300px;
 border-radius: 4px;    
 margin-top: 20px;

@@ -100,12 +100,9 @@ class FiveDay extends Component {
                         <p>{this.props.fiveDay.list[38].main.temp}&#176;F</p> }                </div>
             </FiveDayForecast>
             </div>
-            
-            
-            
-            
-            
+
             : null
+            
             }
         </div>
     );
