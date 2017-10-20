@@ -65,8 +65,7 @@ class App extends Component {
      fetchCities={this.fetchCities} 
      celcius={this.state.celcius}
      search={this.state.search}
-     handleChange={this._handleChange} 
-     search={this.state.search}/>)
+     handleChange={this._handleChange} />)
 
      const CityComponent = (props) =>(<City 
       {...props} 

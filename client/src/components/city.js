@@ -37,8 +37,8 @@ class City extends Component {
         }
     }
 
-    componentWillMount = () => {
-        this.getWeatherData();
+    componentWillMount = async() => {
+        await this.getWeatherData();
         this.getFiveDay();
         // this.getWeatherPic()
     }
