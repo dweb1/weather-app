@@ -6,7 +6,7 @@ import FiveDay from './fiveDay'
 
 const CityCard = styled.div`
     background: rgba(192,192,192,.75);
-    width: 300px;
+    width: 350px;
     border-radius: 4px;    
     margin-top: 20px;
     text-align: center;

@@ -7,6 +7,10 @@ const FiveDayForecast = styled.div`
     justify-content: space-around
 `
 
+const OneDay = styled.div`
+    padding: 5px
+`
+
 class FiveDay extends Component {
 
     _toCelcius = () => {
@@ -62,46 +66,46 @@ class FiveDay extends Component {
             <div>
             <h4>Five Day Forecast</h4>
             <FiveDayForecast>
-                <div>
+                <OneDay>
                     <p>{this.calculateTime(this.props.fiveDay.list[6].dt)}</p>
                     <img src={"http://openweathermap.org/img/w/" + this.props.fiveDay.list[6].weather[0].icon + ".png"} alt="" />
                     {this.props.celcius ? 
                         <p>{this.props.fiveDay.list[6].main.temp}&#176;C</p> 
                         : 
                         <p>{this.props.fiveDay.list[6].main.temp}&#176;F</p> }
-                </div>
-                <div>
+                </OneDay>
+                <OneDay>
                     <p>{this.calculateTime(this.props.fiveDay.list[14].dt)}</p>
                     <img src={"http://openweathermap.org/img/w/" + this.props.fiveDay.list[14].weather[0].icon + ".png"} alt="" />
                     {this.props.celcius ? 
                         <p>{this.props.fiveDay.list[14].main.temp}&#176;C</p> 
                         : 
                         <p>{this.props.fiveDay.list[14].main.temp}&#176;F</p> }
-                </div>
-                <div>
+                </OneDay>
+                <OneDay>
                     <p>{this.calculateTime(this.props.fiveDay.list[22].dt)}</p>
                     <img src={"http://openweathermap.org/img/w/" + this.props.fiveDay.list[22].weather[0].icon + ".png"} alt="" />
                     {this.props.celcius ? 
                         <p>{this.props.fiveDay.list[22].main.temp}&#176;C</p> 
                         : 
                         <p>{this.props.fiveDay.list[22].main.temp}&#176;F</p> }
-                </div>
-                <div>
+                </OneDay>
+                <OneDay>
                     <p>{this.calculateTime(this.props.fiveDay.list[30].dt)}</p>
                     <img src={"http://openweathermap.org/img/w/" + this.props.fiveDay.list[30].weather[0].icon + ".png"} alt="" />
                     {this.props.celcius ? 
                         <p>{this.props.fiveDay.list[30].main.temp}&#176;C</p> 
                         : 
                         <p>{this.props.fiveDay.list[30].main.temp}&#176;F</p> }
-                </div>
-                <div>
+                </OneDay>
+                <OneDay>
                     <p>{this.calculateTime(this.props.fiveDay.list[38].dt)}</p>
                     <img src={"http://openweathermap.org/img/w/" + this.props.fiveDay.list[38].weather[0].icon + ".png"} alt="" />
                     {this.props.celcius ? 
                         <p>{this.props.fiveDay.list[38].main.temp}&#176;C</p> 
                         : 
                         <p>{this.props.fiveDay.list[38].main.temp}&#176;F</p> }
-                </div>
+                </OneDay>
             </FiveDayForecast>
             </div>
 
