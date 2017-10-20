@@ -1,34 +1,58 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 
 const Nav = styled.div`
     display: flex;
     width: 100%;
     background: blue;
-    height: 50px;
+    height: 75px;
     color: white;
     margin: auto 0;
     justify-content: space-between
 `
 
+const Title = styled.div`
+    align-items: center;
+    padding-top: 20px;
+    font-size: 20px;
+    width: 150px;
+`
+
 const Buttons = styled.div`
-    display: flex;
-    color:white
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 20px;
+    margin: 20px;
+    color: #fff;
+    background-color: #314cb6;
+    box-shadow: 0px 5px 0px 0px rgba(0%, 100%, 0%);
+    &:hover{
+    background-color: #FF6656;
+    }
+    &:active{
+    transform: translate(0px, 5px);
+    box-shadow: 0px 1px 0px 0px;
+    }
 `
 
 class Header extends Component{
+    handleClick = (e, history) => {
+        this.props.history.push('/');
+    }
 
     render() {
     return (
         <Nav>
-            Dave's Weather App
-            <Buttons>
-                <Link to="/">Home</Link>
+            <Title>
+                Dave's Weather App
+            </Title>
+            <Buttons onClick={this.handleClick}>
+                Home
             </Buttons>
         </Nav>
     );
     }
 };
 
-export default Header;
+export default withRouter(Header);
