@@ -14,7 +14,7 @@ const Nav = styled.div`
 
 const Title = styled.div`
     align-items: center;
-    padding-top: 20px;
+    padding-top: 15px;
     font-size: 20px;
     width: 150px;
 `

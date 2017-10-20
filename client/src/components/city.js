@@ -8,7 +8,7 @@ const CityCard = styled.div`
     background: rgba(192,192,192,.75);
     width: 350px;
     border-radius: 4px;    
-    margin-top: 20px;
+    margin-top: 10px;
     text-align: center;
     margin: 0 auto 
 `
@@ -112,6 +112,7 @@ class City extends Component {
     return (
         <CityCard>
             <h1>{this.state.weather.name}</h1>
+            <button>Favorite This City</button>
             <FiveDay 
                 fiveDay={this.state.fiveDay} 
                 celcius={this.props.celcius} />
