@@ -19,14 +19,14 @@ class Home extends Component {
 
     render() {
         return (
-            <div>
-            <Search handleChange={this.props.handleChange} search={this.props.search}/>
-            <CityCardBox>
-                {this.props.city.map((city, i) => {
-                    return <FavCities celcius={this.props.celcius} key={i} name={city}/>
-                })}
-            </CityCardBox>
-            </div>
+            <>
+                <Search handleChange={this.props.handleChange} search={this.props.search}/>
+                <CityCardBox>
+                    {this.props.city.map((city, i) => {
+                        return <FavCities celcius={this.props.celcius} key={i} name={city}/>
+                    })}
+                </CityCardBox>
+            </>
         );
     }
 }
