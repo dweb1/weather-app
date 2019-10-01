@@ -22,6 +22,9 @@ app.use('/api/city', CityController);
 app.get('/', (req,res) => {
   res.send('Hello world!')
 })
+app.get('/health', (req,res) => {
+  res.sendStatus(200)
+})
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
